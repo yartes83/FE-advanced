@@ -17,13 +17,19 @@ console.log(Math.floor(priceSweetmeats) + Math.floor(priceIceCream) + Math.floor
 console.log(parseInt(priceSweetmeats) + parseInt(priceIceCream) + parseInt(pricePie)); //мабуть так не можна, нагуглив щось таке. Проте результат такий самий. Це через велику терпимість JS до кривого коду?
 
 //Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300):
+console.log(
+    (
+            (
+                    (Math.floor(priceSweetmeats * 1000) / 1000)
+                    + (Math.floor(priceIceCream * 1000) / 1000)
+                    + (Math.floor(pricePie * 1000) / 1000)
+            )
+    ).toFixed(1)
+);
+//виводить 229.9, щоб зробити 229.900 - бачив тільки з використанням функцій
 
+console.log(Math.ceil(priceSweetmeats + priceIceCream + pricePie).toFixed(3)) //230.000 :(
 
-console.log(Number(priceSweetmeats.toFixed(2)))
-console.log(Number(priceIceCream.toFixed(2)))
+console.log(Math.ceil(230).toFixed(1))
 
-console.log(Math.floor(priceSweetmeats * 10) / 10)
-
-
-
-
+document.writeln(Math.ceil(230).toFixed(1))
