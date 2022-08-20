@@ -28,8 +28,58 @@ console.log(
 );
 //виводить 229.9, щоб зробити 229.900 - бачив тільки з використанням функцій
 
-console.log(Math.ceil(priceSweetmeats + priceIceCream + pricePie).toFixed(3)) //230.000 :(
+console.log(Math.ceil((priceSweetmeats + priceIceCream + pricePie) / 100.0) * 100.0) //нагуглив :)
 
-console.log(Math.ceil(230).toFixed(1))
+//Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
+if ((Math.floor(priceSweetmeats) + Math.floor(priceIceCream) + Math.floor(pricePie)) % 2 == 0) {
+    console.log("парне");
+}
+else {
+    console.log("не парне");
+}
 
-document.writeln(Math.ceil(230).toFixed(1))
+//Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн:
+console.log(Math.abs((priceSweetmeats + priceIceCream + pricePie)  - 500));
+
+//Виведіть середнє значення цін, округлене до другого знаку після коми:
+console.log(Number(
+    Math.round((priceSweetmeats + priceIceCream + pricePie).toFixed(2))
+    )
+)
+//Створіть змінну, в якої збережіть випадкову знижку:
+const randomValue = ((100 - 1) * Math.random() + 1).toFixed(0);
+console.log(randomValue)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
