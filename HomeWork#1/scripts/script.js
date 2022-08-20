@@ -1,34 +1,33 @@
-let priceSweetmeats = 15.678;
-let priceIceCream = 90.2345;
-let pricePie = 123.965;
+const priceSweetmeats = 15.678;
+const priceIceCream = 90.2345;
+const pricePie = 123.965;
 
 //Використовуючи вбудований об'єкт Math – виведіть максимальне число:
-console.log(Number(Math.max(priceSweetmeats, priceIceCream, pricePie)));
+console.log("Максимальне число:" + (Number(Math.max(priceSweetmeats, priceIceCream, pricePie))));
+document.writeln("Максимальне число: " + Number(Math.max(priceSweetmeats, priceIceCream, pricePie)) + "<br>" + "<br>");
+
 
 //Використовуючи вбудований об'єкт Math – виведіть мінімальне число:
-console.log(Number(Math.min(priceSweetmeats, priceIceCream, pricePie)));
+console.log("Мінімальне число: " + (Number(Math.min(priceSweetmeats, priceIceCream, pricePie))));
+document.writeln("Мінімальне число: " + Number(Math.min(priceSweetmeats, priceIceCream, pricePie)) + "<br>" + "<br>");
+
 
 //Складіть вартість всіх товарів, помістіть її в змінну та виведіть цю суму:
 let priceSum = priceSweetmeats + priceIceCream + pricePie;
-console.log(Number(priceSum))
+console.log("Вартість всіх товарів: " + (Number(priceSum)));
+document.writeln("Вартість всіх товарів: " + priceSum + "<br>" + "<br>");
+
 
 //Відкиньте копійки у всіх товарів, потім – складіть цілу частину вартості кожного товару між собою. Округлення використовувати в МЕНЬШУ сторону:
-console.log(Math.floor(priceSweetmeats) + Math.floor(priceIceCream) + Math.floor(pricePie));
-console.log(parseInt(priceSweetmeats) + parseInt(priceIceCream) + parseInt(pricePie)); //мабуть так не можна, нагуглив щось таке. Проте результат такий самий. Це через велику терпимість JS до кривого коду?
+console.log("Округлення суми в меньшу сторону: " + (Math.floor(priceSweetmeats) + Math.floor(priceIceCream) + Math.floor(pricePie)));
+console.log("Округлення суми в меньшу сторону(parseInt): " +  (parseInt(priceSweetmeats) + parseInt(priceIceCream) + parseInt(pricePie))); //мабуть так не можна, нагуглив щось таке. Проте результат такий самий. Це через велику терпимість JS до кривого коду?
+document.writeln("Округлення суми в меньшу сторону: " + (Math.floor(priceSweetmeats) + Math.floor(priceIceCream) + Math.floor(pricePie)) + "<br>" + "<br>" );
+
 
 //Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300):
-console.log(
-    (
-            (
-                    (Math.floor(priceSweetmeats * 1000) / 1000)
-                    + (Math.floor(priceIceCream * 1000) / 1000)
-                    + (Math.floor(pricePie * 1000) / 1000)
-            )
-    ).toFixed(1)
-);
-//виводить 229.9, щоб зробити 229.900 - бачив тільки з використанням функцій
+console.log("Сума товарів, округлена до сотень: " + (Math.ceil((priceSweetmeats + priceIceCream + pricePie) / 100.0) * 100.0)); //нагуглив :)
 
-console.log(Math.ceil((priceSweetmeats + priceIceCream + pricePie) / 100.0) * 100.0) //нагуглив :)
+
 
 //Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
 if ((Math.floor(priceSweetmeats) + Math.floor(priceIceCream) + Math.floor(pricePie)) % 2 == 0) {
@@ -48,8 +47,27 @@ console.log(Number(
 )
 //Створіть змінну, в якої збережіть випадкову знижку:
 const randomValue = ((100 - 1) * Math.random() + 1).toFixed(0);
-console.log(randomValue)
+console.log("випадкова знижка: " + randomValue);
 
+//Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми:
+console.log("сума до сплати: " +
+    (
+        (priceSweetmeats + priceIceCream + pricePie) - (((priceSweetmeats + priceIceCream + pricePie) / 100 * randomValue).toFixed(2))
+    ).toFixed(2)
+)
+
+//Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою та собівартість товарів рівно в два рази нижче їх ціни:
+const totalPrice = priceSweetmeats + priceIceCream + pricePie; //загальна вартість
+console.log("загальна вартість: " + totalPrice);
+const costPrice = totalPrice / 2; //собівартість
+console.log("собівартість: " + costPrice);
+const clientPay = ((priceSweetmeats + priceIceCream + pricePie) - (((priceSweetmeats + priceIceCream + pricePie) / 100 * randomValue).toFixed(2))).toFixed(2);
+console.log("клієнт заплатив: " + clientPay);
+const howMuch = (totalPrice - clientPay).toFixed(3);
+console.log("на скільки менше заплатив: " + howMuch);
+
+const profit = (costPrice - howMuch).toFixed(3); //чистий прибуток
+console.log("чистий прибуток: " + profit);
 
 
 

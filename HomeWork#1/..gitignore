@@ -1,0 +1,10 @@
+console.log(
+    (
+            (
+                    (Math.floor(priceSweetmeats * 1000) / 1000)
+                    + (Math.floor(priceIceCream * 1000) / 1000)
+                    + (Math.floor(pricePie * 1000) / 1000)
+            )
+    ).toFixed(1)
+);
+//виводить 229.9, щоб зробити 229.900 - бачив тільки з використанням функцій
