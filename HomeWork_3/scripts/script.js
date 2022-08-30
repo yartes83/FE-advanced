@@ -119,7 +119,7 @@ function countLetter () {
 
 //Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку:
 function convertation () {
-    let dollar = 30;
+    const dollar = 30;
     let currency = prompt('Введіть суму');
     let typeCurrency = prompt('Введіть тип валюти (UAH або $)');
     typeCurrency = typeCurrency.toLowerCase()
@@ -147,9 +147,13 @@ function convertation () {
 
 function convert (currency) {
     currency = currency.toLowerCase();
-    let dollar = 30;
+    const dollar = 30;
     let sumCurrency = Number(currency.match(/\d+/g)); //беремо тільки цифру
     let typeOfCurrency = currency.indexOf('uah'); //беремо тільки тип валюти
+
+    if (typeCurrency !== 'uah' || '$') {
+        console.log('Тільки гривні або долари');
+    }
 
     do {
         if (typeOfCurrency == -1) {
@@ -165,8 +169,29 @@ function convert (currency) {
 }
 
 
+//а це рішення від профі, мого друга. Круто і лаконічно :)
+function convertProfi(currency) {
+    const dollar = 30;
+    let sumCurrency = Number(currency.match(/\d+/g)); //беремо тільки цифру
+    let typeOfCurrency = String(currency.toLowerCase().match(/(uah|\$)/g)); //беремо тільки тип валюти
+
+    switch (typeOfCurrency) {
+        case '$': return `${(sumCurrency * dollar).toFixed(2)} грн`;
+        case 'uah': return `${(sumCurrency / dollar).toFixed(2)} usd`;
+        default: throw 'Only UAH and USD($) are supported';
+    }
+}
 
 
+
+
+
+//Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам:
+
+// function getRandomPassword (N) {
+//
+//     return Math.floor(Math.random() * max);
+// }
 
 
 
