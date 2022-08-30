@@ -68,7 +68,7 @@ function nameFormat(str) {
     return str[0].toUpperCase() + str.slice(1).toLowerCase();
 }
 
-//Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
+// 4. Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
 function getSumAfterDuty(sum, duty) {
     let x = sum;
     let y = duty; //податок
@@ -76,17 +76,53 @@ function getSumAfterDuty(sum, duty) {
     return result = x - (x / 100 * y);
 }
 
-console.log(getSumAfterDuty(1000, 19.5))
+function getSumAfterKnownDuty(sum) {
+    let x = sum;
+    let y = 19.5; //податок
+
+    return result = x - (x / 100 * y);
+}
+
+//5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M:
+function getRandomNumber(N, M) {
+    min = Math.ceil(N);
+    max = Math.floor(M);
+    return Math.floor(Math.random() * (M - N + 1)) + N;
+}
+
+// 6. Створити функцію, яка рахує скільки разів певна буква повторюється в слові:
+function countLetter (str, N) {
+    let count = 0;
+    let pos = str.indexOf(N)
+
+    while (pos !== -1) {
+        count++;
+        pos = str.indexOf(N, pos + 1);
+    }
+    return count
+}
+//console.log(countLetter('Yaroslav', 'a')) - якщо так ввести - працює, якщо без лапок - ні. Соромно зізнатися, але як перевести в стрінгу? str = String(str) - не працює.
+//Закінчу домашку - буду гуглити
 
 
+function countLetter () {
+    let str = prompt(String('Введіть слово'));
+    console.log(typeof (str));
+    let N = prompt(String('Введіть букву'));
+    console.log(typeof (N));
 
+    let count = 0;
+    let pos = str.indexOf(N)
 
+    while (pos !== -1) {
+        count++;
+        pos = str.indexOf(N, pos + 1);
+    }
 
+    alert (count)
+}
 
-
-
-
-
+console.log(countLetter())
 
 
 
