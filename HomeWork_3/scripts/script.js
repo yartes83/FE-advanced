@@ -103,26 +103,100 @@ function countLetter (str, N) {
 }
 //console.log(countLetter('Yaroslav', 'a')) - якщо так ввести - працює, якщо без лапок - ні. Соромно зізнатися, але як перевести в стрінгу? str = String(str) - не працює.
 //Закінчу домашку - буду гуглити
-
-
 function countLetter () {
     let str = prompt(String('Введіть слово'));
-    console.log(typeof (str));
     let N = prompt(String('Введіть букву'));
-    console.log(typeof (N));
 
     let count = 0;
-    let pos = str.indexOf(N)
+    let pos = str.indexOf(N);
 
     while (pos !== -1) {
         count++;
         pos = str.indexOf(N, pos + 1);
     }
-
     alert (count)
 }
 
-console.log(countLetter())
+//Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку:
+function convertation () {
+    let dollar = 30;
+    let currency = prompt('Введіть суму');
+    let typeCurrency = prompt('Введіть тип валюти (UAH або $)');
+    typeCurrency = typeCurrency.toLowerCase()
+
+    if (typeCurrency !== 'uah' || '$') {
+        alert('Тільки гривні або долари');
+    }
+
+    do {
+        if (typeCurrency == 'uah') {
+            result1 = (currency / dollar).toFixed(2);
+        } if (typeCurrency == '$'){
+            result2 = (currency * dollar).toFixed(2);
+        } else {
+            break;
+        }
+    }while (false);
+
+    if (typeCurrency == 'uah') {
+        alert(result1 + ' $');
+    } else {
+        alert(result2 + ' грн');
+    }
+}
+
+function convert (currency) {
+    currency = currency.toLowerCase();
+    let dollar = 30;
+    let sumCurrency = Number(currency.match(/\d+/g)); //беремо тільки цифру
+    let typeOfCurrency = currency.indexOf('uah'); //беремо тільки тип валюти
+
+    do {
+        if (typeOfCurrency == -1) {
+            result = ((sumCurrency * dollar).toFixed(2) + 'грн');
+        } if (typeOfCurrency !== -1) {
+            result = ((sumCurrency / dollar).toFixed(2) + 'usd');
+        } else {
+            break;
+        }
+    }while(false);
+
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
