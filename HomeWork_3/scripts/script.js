@@ -169,7 +169,7 @@ function convert (currency) {
 }
 
 
-//а це рішення від профі, мого друга. Круто і лаконічно :) Це для себе зберіг як зразок лаконічності і краси кода :)
+//а це рішення від профі, мого друга. Це для себе зберіг.
 function convertProfi(currency) {
     const dollar = 30;
     let sumCurrency = Number(currency.match(/\d+/g)); //беремо тільки цифру
