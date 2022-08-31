@@ -169,7 +169,7 @@ function convert (currency) {
 }
 
 
-//а це рішення від профі, мого друга. Круто і лаконічно :)
+//а це рішення від профі, мого друга. Круто і лаконічно :) Це для себе зберіг як зразок лаконічності і краси кода :)
 function convertProfi(currency) {
     const dollar = 30;
     let sumCurrency = Number(currency.match(/\d+/g)); //беремо тільки цифру
@@ -183,30 +183,25 @@ function convertProfi(currency) {
 }
 
 
-
-
-
 //Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам:
 
-// function getRandomPassword (N) {
-//
-//     return Math.floor(Math.random() * max);
-// }
+function getRandomPassword(number) {
+    if (number) {
+        return Math.random().toFixed(number).split('.')[1];
+    } else {
+        return Math.random().toFixed(8).split('.')[1];
+    }
+}
 
+// Створіть функцію, яка видаляє всі букви з речення. ( https://ru.stackoverflow.com/questions/1115206/%D0%9A%D0%B0%D0%BA-%D1%83%D0%B4%D0%B0%D0%BB%D0%B8%D1%82%D1%8C-%D0%BA%D0%BE%D0%BD%D0%BA%D1%80%D0%B5%D1%82%D0%BD%D1%8B%D0%B9-%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82-%D0%B8%D0%B7-%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B8 )
+function deleteLetters(letter, word) {
+    return word.split(letter).join("");
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Створіть функцію, яка перевіряє, чи є слово паліндромом. ( https://overcoder.net/q/111459/%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0-%D0%BF%D0%B0%D0%BB%D0%B8%D0%BD%D0%B4%D1%80%D0%BE%D0%BC%D0%B0-%D0%B2-javascript  )
+function checkPalindrom (str) {
+    return str == str.split('').reverse().join('');
+}
 
 
 
