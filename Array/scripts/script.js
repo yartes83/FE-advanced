@@ -205,7 +205,63 @@ people.forEach((name, i) => {
     }
 )
 
+//Стандартний перебор масива на найбільше число
+let arrMax = [2, 5, 14, 66, 77, 8];
 
+let max = arrMax[0];
+
+for (let i = 0; i < arrMax.length; i++){
+    if(arrMax[i] > max){
+        max = arrMax[i];
+    }
+}
+
+console.log(max)
+
+
+
+//Як прибрати або замінити букву
+function deleteLetters(letter, word) {
+    return word.split(letter).join("!");
+}
+
+// Як вирахувати суму числе в масиві
+let arrNew = [1, 2, 3, 4]
+
+let sum = arrNew.reduce((prev, item) => {
+    return prev + item
+}, 0)
+console.log(`Результат: ${sum}`)
+
+//Як вивести найбільше число:
+let arrMax = [2, 5, 14, 66, 77, 8];
+
+// - Звичаний цикл:
+let max = arrMax[0];
+for (let i = 0; i < arrMax.length; i++){
+    if(arrMax[i] > max){
+        max = arrMax[i];
+    }
+}
+console.log(max)
+
+// - reduce
+let arrMaxMax = arrMax.reduce((prev, item) => {
+    if (prev < item) {
+        return item;
+    } else {
+        return prev;
+    }
+
+})
+console.log(arrMaxMax)
+
+//Як об'єднати масиви в одномірний
+let data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+let flat = data.reduce( (previousValue, item) => {
+    return previousValue.concat(item);
+},[])
+console.log(flat)
 
 
 
