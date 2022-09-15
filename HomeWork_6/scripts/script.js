@@ -42,24 +42,44 @@ return result
     }
  //   console.log(getSubjects("Victor"))
 
+//---------------------------------------------------------------------------------------------------------------------------
 //2. Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім предметам для переданого студента НЕ МАСИВА СТУДЕНТІВ. Оцінку округліть до 2oго знаку.
-
+//затупив, думав передавати треба ім'я студента, а не індекс
 function getAverageMark(name){
     let sum = 0;
+    let arr;
     let student = students.find( obj=>obj.name == name );
     for ( let key in student ) {
-        arr = Object.values( student.subjects ).reduce( (prev, item) => {
+           arr = Object.values( student.subjects ).reduce( (prev, item) => {
             return ( prev.concat(item) );
         })
     }
     for ( let i = 0; i < arr.length; i++){
         sum+= arr[i];
     }
-    return result = ( sum / arr.length ).toFixed(2)
+    return ( sum / arr.length ).toFixed(2)
+}
+//console.log(getAverageMark("Tanya"))
+
+// а тут через індекс
+function getAverageMarkNew(students) {
+    let sum = 0;
+    let arr = [];
+
+    for ( let key in students ) {
+        arr = Object.values( students.subjects ).reduce( (prev, item) => {
+            return ( prev.concat(item) );
+        })
+    }
+    for ( let i = 0; i < arr.length; i++){
+        sum+= arr[i];
+    }
+    return ( sum / arr.length ).toFixed(2)
 }
 
-//console.log(getAverageMark("Anton"))
+//console.log( getAverageMarkNew(students[1]))
 
+//---------------------------------------------------------------------------------------------------------------------------
 //3. Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – яка повертає інформацію загального виду по переданому студенту (вам знадобиться функція з попереднього завдання).
 // ПОвинна бути виведена інформація: курс, ім'я, середня оцінка:
 
@@ -74,10 +94,9 @@ function getStudentInfo(name) {
         "averageMark": getAverageMark(name)
     };
 }
+//console.log(getStudentInfo("Tanya"))
 
-//console.log(getStudentInfo("Victor"))
-
-
+//---------------------------------------------------------------------------------------------------------------------------
 // 4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку:
 
 function getStudentsNames(students) {
@@ -85,11 +104,69 @@ function getStudentsNames(students) {
         a.name).sort();                     //https://medium.com/@stasonmars/%D0%BA%D0%B0%D0%BA-%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D1%83-%D0%B2-javascript-%D0%BF%D1%80%D0%B8-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%B8-sort-d492c97ccfdf
     return studentsNames;
 }
-
 console.log(getStudentsNames(students))
 
-
+//---------------------------------------------------------------------------------------------------------------------------
 // 5. Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента зі списку по показнику середньої оцінки:
+
+function getBestStudent(students) {
+    let best = students.reduce((prev, item) => {
+        if (getAverageMarkNew(prev) > getAverageMarkNew(item)) {
+            return prev;
+        } else {
+            return item;
+        }
+    });
+    return best.name;
+}
+//console.log(getBestStudent(students));
+
+//6. Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } – яка повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень:
+// тут щось реально затупив. Знайшов щось схоже тут: https://qna.habr.com/q/780005
+function calculateWordLetters(str) {
+    const symbols = new Map();
+    for (const c of str) {
+        const currCount = symbols.get(c) || 0;
+        symbols.set(c, currCount + 1);
+    }
+    const orderedSymbols = [...symbols.entries()];
+    return orderedSymbols.reduce((prev, item) => {
+        return (prev.concat(item))
+    });
+
+
+}
+
+console.log(calculateWordLetters("абабагаламага"))
+
+
+function calculateWordLetters1 (str) {
+    return Object.entries([...str].reduce((acc, n) => (acc[n] = (acc[n] || 0) + 1, acc), {}))
+}
+
+console.log(calculateWordLetters1("тест"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
