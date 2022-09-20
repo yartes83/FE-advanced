@@ -1,24 +1,3 @@
-// const obj = {
-//     name: "John",
-//     lastName: "Botsman",
-// }
-//
-// function sayName (...args) {
-//     console.log(args)
-//     console.log(this.name, this.lastName);
-// }
-// function repres (...args) {
-//     console.log(`Мене звати ${this.name} ${this.lastName}`)
-// }
-// sayName.call(obj, 10, 20, 30)
-// sayName.apply(obj, [10, 20, 30])
-//
-// const temp = sayName.bind(obj, 40, 50, 60)
-//
-// temp()
-//
-// repres.call(obj)
-
 const ukraine = { tax: 0.195, middleSalary: 1789, vacancies: 11476 };
 
 const latvia = { tax: 0.25, middleSalary: 1586, vacancies: 3921 };
