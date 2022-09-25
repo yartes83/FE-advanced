@@ -40,7 +40,7 @@ let student = students.find( obj=>obj.name == name );
     }
 return result
     }
- //   console.log(getSubjects("Victor"))
+ console.log(getSubjects("Victor"))
 
 //---------------------------------------------------------------------------------------------------------------------------
 //2. Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім предметам для переданого студента НЕ МАСИВА СТУДЕНТІВ. Оцінку округліть до 2oго знаку.
@@ -59,7 +59,7 @@ function getAverageMark(name){
     }
     return ( sum / arr.length ).toFixed(2)
 }
-//console.log(getAverageMark("Tanya"))
+console.log(getAverageMark("Tanya"))
 
 // а тут через індекс
 function getAverageMarkNew(students) {
@@ -77,7 +77,7 @@ function getAverageMarkNew(students) {
     return ( sum / arr.length ).toFixed(2)
 }
 
-//console.log( getAverageMarkNew(students[1]))
+console.log( getAverageMarkNew(students[1]))
 
 //---------------------------------------------------------------------------------------------------------------------------
 //3. Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – яка повертає інформацію загального виду по переданому студенту (вам знадобиться функція з попереднього завдання).
@@ -94,7 +94,7 @@ function getStudentInfo(name) {
         "averageMark": getAverageMark(name)
     };
 }
-//console.log(getStudentInfo("Tanya"))
+console.log(getStudentInfo("Tanya"))
 
 //---------------------------------------------------------------------------------------------------------------------------
 // 4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку:
@@ -119,7 +119,7 @@ function getBestStudent(students) {
     });
     return best.name;
 }
-//console.log(getBestStudent(students));
+console.log(getBestStudent(students));
 
 //6. Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } – яка повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень:
 // тут щось реально затупив. Знайшов щось схоже тут: https://qna.habr.com/q/780005
