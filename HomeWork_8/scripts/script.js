@@ -56,10 +56,10 @@ class Student {
     }
 }
 
-const student = new Student ('Університет Монстрів', 'Залякування', 'Майкл Вазовськи', [5, 4])
-//console.log(student)
-//console.log(student.getInfo())
-//console.log(student.getMarks())
+const student = new Student ('Університет Монстрів', 'Жарти і сміх дають енергію', 'Майкл Вазовськи', [5, 4])
+console.log(student)
+console.log(student.getInfo())
+console.log(student.getMarks())
 student.mark = 5
 student.mark = 3
 student.mark = 4
