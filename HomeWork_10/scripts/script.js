@@ -23,8 +23,12 @@ function generateBlocks() {
         border-width: 1px;
         border-color: black;`
         block.style.backgroundColor = `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`
+        block.onclick =  () => {
+            block.style.backgroundColor = `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`
+        }
     }
     return blocksContainer;
+
 }
 generateBlocks ()
 
@@ -32,3 +36,4 @@ generateBlocks ()
 function getRandom(min, max){
     return Math.ceil(Math.random() * (max - min) + min)
 }
+
