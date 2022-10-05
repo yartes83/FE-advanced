@@ -23,15 +23,29 @@ function generateBlocks() {
         border-width: 1px;
         border-color: black;`
         block.style.backgroundColor = `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`
+
+
         block.onclick =  () => {
             block.style.backgroundColor = `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`
         }
     }
-    return blocksContainer;
 
+    return blocksContainer;
 }
 generateBlocks ()
 
+window.onclick = () => {
+    const block = document.getElementsByTagName("block");
+
+    for (let i = 0; i < 25; i++) {
+
+         block[i].style.background = `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`
+
+    }
+
+}
+
+//document.getElementsByTagName("block")
 //https://qna.habr.com/q/577802
 function getRandom(min, max){
     return Math.ceil(Math.random() * (max - min) + min)
