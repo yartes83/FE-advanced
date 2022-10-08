@@ -1,0 +1,13 @@
+.invalid {
+    border: 1px solid red;
+}
+
+.car {
+    margin-top: 30px;
+    width: 500px;
+    height: 220px;
+    background-image: url("iimages/car.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+}
